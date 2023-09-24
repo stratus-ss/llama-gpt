@@ -1,3 +1,12 @@
+## NOTE
+
+This is a fork of the Llama-GPT from Umbrel. I have added updated models in some cases. I will probably do some other tweaks like not rebuilding the UI every time you switch the model. I may eventually customize the chatbot UI if I can figure it out
+
+
+
+### Original Readme below
+
+
 <p align="center">
   <a href="https://apps.umbrel.com/app/llama-gpt">
     <img width="150" height="150" src="https://i.imgur.com/LI59cui.png" alt="LlamaGPT" width="200" />
