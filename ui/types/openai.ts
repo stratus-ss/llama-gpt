@@ -23,11 +23,22 @@ export enum OpenAIModelID {
   
   CODE_LLAMA_7B_CHAT_GGUF_Q4_K_M = '/models/code-llama-7b-chat.gguf',
   CODE_LLAMA_13B_CHAT_GGUF_Q4_K_M = '/models/code-llama-13b-chat.gguf',
-  CODE_LLAMA_34B_CHAT_GGUF_Q4_K_M = '/models/code-llama-34b-chat.gguf',
+  CODE_LLAMA_34B_CHAT_GGUF_Q4_K_M = '/models/code-llama-34b-q4-chat.gguf',
   
   CODE_LLAMA_7B_CHAT_GGUF_Q4_K_M_MAC = './models/code-llama-7b-chat.gguf',
   CODE_LLAMA_13B_CHAT_GGUF_Q4_K_M_MAC = './models/code-llama-13b-chat.gguf',
-  CODE_LLAMA_34B_CHAT_GGUF_Q4_K_M_MAC = './models/code-llama-34b-chat.gguf',
+  CODE_LLAMA_34B_CHAT_GGUF_Q4_K_M_MAC = './models/code-llama-34b-q4-chat.gguf',
+
+  CODE_LLAMA_34B_CHAT_GGUF_Q5_K_S_MAC = './models/code-llama-34b-q5-chat.gguf',
+  CODE_LLAMA_34B_CHAT_GGUF_Q5_K_S = '/models/code-llama-34b-q5-chat.gguf',
+
+  CODEUP_ALPHA_13B_GGUF_Q5_K_S_MAC = './models/codeup-alpha-13b-chat.gguf',
+  CODEUP_ALPHA_13B_GGUF_Q5_K_S = '/models/codeup-alpha-13b-chat.gguf',
+
+  CODEFUSE_34B_GGUF_Q5_K_S_MAC = './models/codefuse-34b.gguf',
+  CODEFUSE_34B_GGUF_Q5_K_S = '/models/codefuse-34b.gguf',
+  
+  
 }
 
 // in case the `DEFAULT_MODEL` environment variable is not set or set to an unsupported model
@@ -106,12 +117,6 @@ export const OpenAIModels: Record<OpenAIModelID, OpenAIModel> = {
     maxLength: 12000,
     tokenLimit: 4000,
   },
-  [OpenAIModelID.CODE_LLAMA_34B_CHAT_GGUF_Q4_K_M]: {
-    id: OpenAIModelID.CODE_LLAMA_34B_CHAT_GGUF_Q4_K_M_MAC,
-    name: 'Code Llama 34B',
-    maxLength: 12000,
-    tokenLimit: 4000,
-  },
   [OpenAIModelID.CODE_LLAMA_7B_CHAT_GGUF_Q4_K_M_MAC]: {
     id: OpenAIModelID.CODE_LLAMA_7B_CHAT_GGUF_Q4_K_M_MAC,
     name: 'Code Llama 7B',
@@ -124,10 +129,55 @@ export const OpenAIModels: Record<OpenAIModelID, OpenAIModel> = {
     maxLength: 12000,
     tokenLimit: 4000,
   },
-  [OpenAIModelID.CODE_LLAMA_34B_CHAT_GGUF_Q4_K_M_MAC]: {
+  [OpenAIModelID.CODE_LLAMA_34B_CHAT_GGUF_Q4_K_M]: {
     id: OpenAIModelID.CODE_LLAMA_34B_CHAT_GGUF_Q4_K_M_MAC,
-    name: 'Code Llama 34B',
+    name: 'Code Llama 34B Q4',
     maxLength: 12000,
     tokenLimit: 4000,
   },
+  [OpenAIModelID.CODE_LLAMA_34B_CHAT_GGUF_Q4_K_M_MAC]: {
+    id: OpenAIModelID.CODE_LLAMA_34B_CHAT_GGUF_Q4_K_M_MAC,
+    name: 'Code Llama 34B Q4',
+    maxLength: 12000,
+    tokenLimit: 4000,
+  },
+  [OpenAIModelID.CODE_LLAMA_34B_CHAT_GGUF_Q5_K_S]: {
+    id: OpenAIModelID.CODE_LLAMA_34B_CHAT_GGUF_Q5_K_S_MAC,
+    name: 'Code Llama 34B Q5',
+    maxLength: 12000,
+    tokenLimit: 4000,
+  },
+  [OpenAIModelID.CODE_LLAMA_34B_CHAT_GGUF_Q5_K_S_MAC]: {
+    id: OpenAIModelID.CODE_LLAMA_34B_CHAT_GGUF_Q5_K_S_MAC,
+    name: 'Code Llama 34B Q5',
+    maxLength: 12000,
+    tokenLimit: 4000,
+  },
+
+  [OpenAIModelID.CODEUP_ALPHA_13B_GGUF_Q5_K_S]: {
+    id: OpenAIModelID.CODEUP_ALPHA_13B_GGUF_Q5_K_S_MAC,
+    name: 'Code Alpha 13B',
+    maxLength: 12000,
+    tokenLimit: 4000,
+  },
+  [OpenAIModelID.CODEUP_ALPHA_13B_GGUF_Q5_K_S_MAC]: {
+    id: OpenAIModelID.CODEUP_ALPHA_13B_GGUF_Q5_K_S_MAC,
+    name: 'Code Alpha 13B',
+    maxLength: 12000,
+    tokenLimit: 4000,
+  },
+
+  [OpenAIModelID.CODEFUSE_34B_GGUF_Q5_K_S]: {
+    id: OpenAIModelID.CODEFUSE_34B_GGUF_Q5_K_S_MAC,
+    name: 'Code Fuse 34B',
+    maxLength: 12000,
+    tokenLimit: 4000,
+  },
+  [OpenAIModelID.CODEFUSE_34B_GGUF_Q5_K_S_MAC]: {
+    id: OpenAIModelID.CODEFUSE_34B_GGUF_Q5_K_S_MAC,
+    name: 'Code Fuse 34B',
+    maxLength: 12000,
+    tokenLimit: 4000,
+  },
+
 };

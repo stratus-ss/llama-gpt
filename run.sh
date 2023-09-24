@@ -22,7 +22,7 @@ done
 if [ -z "$model" ]
 then
     echo "No model value provided. Defaulting to 7b. If you want to change the model, exit the script and use --model to provide the model value."
-    echo "Supported models are 7b, 13b, 70b, code-7b, code-13b, code-34b."
+    echo "Supported models are 7b, 13b, 70b, code-7b, code-13b, code-34b-Q4, code-34b-Q5, codefuse-34b. codeup-13b"
     model="7b"
 fi
 
@@ -70,9 +70,9 @@ case $model in
         export WAIT_TIMEOUT=10800
         export N_GQA=1
         ;;
-    code-34b)
-        export MODEL_NAME="code-llama-34b-chat.gguf"
-        export MODEL_DOWNLOAD_URL="https://huggingface.co/TheBloke/Phind-CodeLlama-34B-v1-GGUF/resolve/main/phind-codellama-34b-v1.Q4_K_M.gguf"
+    code-34b-Q4)
+        export MODEL_NAME="code-llama-34b-q4-chat.gguf"
+        export MODEL_DOWNLOAD_URL="https://huggingface.co/TheBloke/Phind-CodeLlama-34B-v2-GGUF/resolve/main/phind-codellama-34b-v2.Q4_K_M.gguf"
         export DEFAULT_SYSTEM_PROMPT="You are a helpful coding assistant. Use markdown when responding with code."
         export WAIT_TIMEOUT=21600
         # Code Llama 34B's grouping factor is 8 compared to 7B and 13B's 1. Currently,
@@ -81,6 +81,32 @@ case $model in
         # See: https://github.com/abetlen/llama-cpp-python/issues/528
         export N_GQA=8
         ;;
+    code-34b-Q5)
+        export MODEL_NAME="code-llama-34b-q5-chat.gguf"
+        export MODEL_DOWNLOAD_URL="https://huggingface.co/TheBloke/Phind-CodeLlama-34B-v2-GGUF/resolve/main/phind-codellama-34b-v2.Q5_K_S.gguf"
+        export DEFAULT_SYSTEM_PROMPT="You are a helpful coding assistant. Use markdown when responding with code."
+        export WAIT_TIMEOUT=21600
+        # Code Llama 34B's grouping factor is 8 compared to 7B and 13B's 1. Currently,
+        # it's not possible to change this using --n_gqa with llama-cpp-python in
+        # run.sh, so we expose it as an environment variable.
+        # See: https://github.com/abetlen/llama-cpp-python/issues/528
+        export N_GQA=8
+        ;;
+    codeup-13b)
+        export MODEL_NAME="codeup-alpha-13b-chat.gguf"
+        export MODEL_DOWNLOAD_URL="https://huggingface.co/TheBloke/CodeUp-Alpha-13B-HF-GGUF/resolve/main/codeup-alpha-13b-hf.Q5_K_S.gguf"
+        export DEFAULT_SYSTEM_PROMPT="You are a helpful coding assistant. Use markdown when responding with code."
+        export WAIT_TIMEOUT=10800
+        export N_GQA=1
+        ;;
+    codefuse-34b)
+        export MODEL_NAME="codefuse-34b.gguf"
+        export MODEL_DOWNLOAD_URL="https://huggingface.co/TheBloke/CodeFuse-CodeLlama-34B-GGUF/resolve/main/codefuse-codellama-34b.Q5_K_S.gguf"
+        export DEFAULT_SYSTEM_PROMPT="You are a helpful coding assistant. Use markdown when responding with code."
+        export WAIT_TIMEOUT=10800
+        export N_GQA=8
+        ;;
+
     *)
         echo "Invalid model value provided. Supported models are 7b, 13b, 70b, code-7b, code-13b, code-34b."
         exit 1
