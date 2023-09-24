@@ -2,6 +2,17 @@
 
 This is a fork of the Llama-GPT from Umbrel. I have added updated models in some cases. I will probably do some other tweaks like not rebuilding the UI every time you switch the model. I may eventually customize the chatbot UI if I can figure it out
 
+The following models are in addition to the current Umbrel project:
+
+[codefuse-34b.gguf](https://huggingface.co/TheBloke/CodeFuse-CodeLlama-34B-GGUF)
+
+[codeup-alpha-13b-chat.gguf](https://huggingface.co/TheBloke/CodeUp-Alpha-13B-HF-GGUF)
+
+These are V2 where the original project has V1 support
+
+[code-llama-34b-q4-chat.gguf](https://huggingface.co/TheBloke/Phind-CodeLlama-34B-v2-GGUF/)
+
+[code-llama-34b-q5-chat.gguf](https://huggingface.co/TheBloke/Phind-CodeLlama-34B-v2-GGUF)
 
 
 ### Original Readme below
